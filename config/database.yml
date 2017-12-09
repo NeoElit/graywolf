@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['GRAYWOLF_DB_USERNAME'] %>
+  password: <%= ENV['GRAYWOLF_DB_PASSWORD'] %>
+  host: <%= ENV['GRAYWOLF_DB_HOSTNAME'] %>
+  port: <%= ENV['GRAYWOLF_DB_PORT'] %>
+
+development:
+  <<: *default
+  database: graywolf_development_db
+
+test:
+  <<: *default
+  database: graywolf_test_db
+
+production:
+  <<: *default
+  database: graywolf_production_db
